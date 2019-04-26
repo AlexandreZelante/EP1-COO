@@ -5,6 +5,7 @@
  */
 package ep1coo;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -13,14 +14,16 @@ import java.util.List;
  */
 public class Participante {
     String email;
-    List<Intervalo> disponibilidade;
+    ArrayList<Intervalo> disponibilidade;
     
     public Participante(String email){
         this.email = email;
+        this.disponibilidade = new ArrayList<Intervalo>();
     }
     
     List<Intervalo> getDisponibilidade(){
         return this.disponibilidade;
     }
-       
+    
+    
 }
