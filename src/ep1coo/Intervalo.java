@@ -12,8 +12,8 @@ import java.time.LocalDateTime;
  * @author alexa
  */
 public class Intervalo {
-    LocalDateTime inicio;
-    LocalDateTime fim;
+    private LocalDateTime inicio;
+    private LocalDateTime fim;
     
     public Intervalo(LocalDateTime inicio, LocalDateTime fim){
         this.inicio = inicio;

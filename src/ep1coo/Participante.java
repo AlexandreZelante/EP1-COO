@@ -22,6 +22,5 @@ public class Participante {
     List<Intervalo> getDisponibilidade(){
         return this.disponibilidade;
     }
-    
-    
+       
 }
