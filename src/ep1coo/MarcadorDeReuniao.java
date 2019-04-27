@@ -13,7 +13,8 @@ public class MarcadorDeReuniao {
         for(String email : listaDeEmailsParticipantes){
             listaDeParticipantes.add(new Participante(email));
         }
-        
+        //Como vamos recuperar essa instancia? Na teoria o método deveria retornar a reunião
+        //Para que no main pudessemos manipular ela, tipo chamar indica disponibilidade
         novaReuniao = new Reuniao(listaDeParticipantes, dataInicial, dataFinal);
     }
     
@@ -39,4 +40,5 @@ public class MarcadorDeReuniao {
            System.out.println("Participante não encontrado na lista da reunião");
        }
    }
+   
 }
