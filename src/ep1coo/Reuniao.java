@@ -1,29 +1,33 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package ep1coo;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.Collection;
 
-/**
- *
- * @author alexa
- */
 public class Reuniao {
-    private Collection<String> participantes;
+    private ArrayList<Participante> participantes;
     private LocalDate inicioIntervalo;
     private LocalDate finalIntervalo;
     
-    public Reuniao(Collection<String> participantes, LocalDate inicioIntervalo, LocalDate finalIntervalo){
-        this.participantes = participantes;
+    public Reuniao(ArrayList<Participante> participantes, LocalDate inicioIntervalo, LocalDate finalIntervalo){
+        
         this.inicioIntervalo = inicioIntervalo;
         this.finalIntervalo = finalIntervalo;
     }
 
-    public void setParticipantes(Collection<String> participantes) {
+    public ArrayList<Participante> getParticipantes() {
+        return participantes;
+    }
+
+    public LocalDate getInicioIntervalo() {
+        return inicioIntervalo;
+    }
+
+    public LocalDate getFinalIntervalo() {
+        return finalIntervalo;
+    }
+
+    public void setParticipantes(ArrayList<Participante> participantes) {
         this.participantes = participantes;
     }
 
@@ -35,16 +39,6 @@ public class Reuniao {
         this.finalIntervalo = finalIntervalo;
     }
 
-    public Collection<String> getParticipantes() {
-        return participantes;
-    }
-
-    public LocalDate getInicioIntervalo() {
-        return inicioIntervalo;
-    }
-
-    public LocalDate getFinalIntervalo() {
-        return finalIntervalo;
-    }
+    
     
 }
