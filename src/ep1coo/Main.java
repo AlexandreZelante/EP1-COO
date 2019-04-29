@@ -23,8 +23,7 @@ public class Main {
         marcador.indicaDisponibilidade("dois", LocalDateTime.parse("2019-04-29T11:40"), LocalDateTime.parse("2019-04-29T11:50"));
         marcador.indicaDisponibilidade("dois", LocalDateTime.parse("2019-04-30T12:40"), LocalDateTime.parse("2019-04-30T12:50"));
         
-        
-        System.out.println(LocalDateTime.now());
+ 
         marcador.novaReuniao.mostraSobreposicao();
     }
     
