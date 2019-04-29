@@ -13,13 +13,21 @@ public class Participante {
         this.disponibilidade = new ArrayList<Intervalo>();
     }
     
-    List<Intervalo> getDisponibilidade(){
+    ArrayList<Intervalo> getDisponibilidade(){
         return this.disponibilidade;
     }
     
     void inserirDisponibilidade(LocalDateTime inicio, LocalDateTime fim){
         Intervalo novoIntervalo = new Intervalo(inicio, fim);
         disponibilidade.add(novoIntervalo);
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
     
     

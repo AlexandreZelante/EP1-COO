@@ -10,7 +10,7 @@ public class Reuniao {
     private LocalDate finalIntervalo;
     
     public Reuniao(ArrayList<Participante> participantes, LocalDate inicioIntervalo, LocalDate finalIntervalo){
-        
+        this.participantes = participantes;
         this.inicioIntervalo = inicioIntervalo;
         this.finalIntervalo = finalIntervalo;
     }
@@ -39,6 +39,18 @@ public class Reuniao {
         this.finalIntervalo = finalIntervalo;
     }
 
-    
+    public void mostraSobreposicao(){
+       
+        for(Participante participante : participantes){
+            ArrayList<Intervalo> listaDisponibilidade = participante.getDisponibilidade();
+            System.out.println(participante.getEmail());
+            if(listaDisponibilidade != null) {
+                for(Intervalo intervalo : listaDisponibilidade){
+                    System.out.println("De " + intervalo.getInicio() + " até " + intervalo.getFim());
+                }
+            }
+            System.out.println("");
+        }
+    }
     
 }

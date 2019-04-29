@@ -20,7 +20,20 @@ public class MarcadorDeReuniao {
     
    public void indicaDisponibilidade(String participante, LocalDateTime inicio, LocalDateTime fim){
        //Verificar num if se a data encaixa no intervalo de data definida pelo organizador
-       // Codar aqui
+      
+       if(inicio.isAfter(fim)){
+           System.out.println("O inicio deve ser antes do final");
+           return;
+       }
+       
+       LocalDateTime inicioIntervalo = novaReuniao.getInicioIntervalo().atStartOfDay();
+       LocalDateTime fimIntervalo = novaReuniao.getFinalIntervalo().atTime(23,59,59);
+       
+       if(!((inicio.isAfter(inicioIntervalo) || inicio.isEqual(inicioIntervalo))
+               && (fim.isBefore(fimIntervalo) || fim.isEqual(fimIntervalo)))){
+           System.out.println("O horario indicado nao esta no intervalo disponivel para a reuniao");
+           return;
+       }
        
        ArrayList<Participante> listaDeParticipantes = novaReuniao.getParticipantes();
        //Adicionar uma busca para pegar o participante que possua o email recebido no parametro "participante"
@@ -40,5 +53,7 @@ public class MarcadorDeReuniao {
            System.out.println("Participante não encontrado na lista da reunião");
        }
    }
+   
+   
    
 }
