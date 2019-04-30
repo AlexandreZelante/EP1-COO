@@ -48,7 +48,6 @@ public class MarcadorDeReuniao {
        if(participanteSelecionado != null){
            //Participante existe -- Inclui um intervalo disponível dele
            participanteSelecionado.inserirDisponibilidade(inicio, fim);
-           System.out.println("Intervalo inserido");
        }else{
            System.out.println("Participante não encontrado na lista da reunião");
        }

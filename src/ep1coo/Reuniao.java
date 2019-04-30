@@ -2,6 +2,7 @@ package ep1coo;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
 public class Reuniao {
@@ -9,6 +10,7 @@ public class Reuniao {
     private ArrayList<Intervalo> listaInterseccoes; 
     private LocalDate inicioIntervalo;
     private LocalDate finalIntervalo;
+    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm");
     
     public Reuniao(ArrayList<Participante> participantes, LocalDate inicioIntervalo, LocalDate finalIntervalo){
         this.participantes = participantes;
@@ -49,7 +51,7 @@ public class Reuniao {
             System.out.println("Participante: " + participante.getEmail());
             if(listaDisponibilidade != null) {
                 for(Intervalo intervalo : listaDisponibilidade){
-                    System.out.println("De " + intervalo.getInicio() + " até " + intervalo.getFim());
+                    System.out.println("De " + intervalo.getInicio().format(formatter) + " até " + intervalo.getFim().format(formatter));
                 }
             }
             System.out.println("");
@@ -61,8 +63,9 @@ public class Reuniao {
         defineInterseccoes(0, iIntervalo, fIntervalo);
         
         if(listaInterseccoes != null){
+            System.out.println("Lista de horários disponíveis para todos: ");
             for(Intervalo interseccao : listaInterseccoes){
-                System.out.println(interseccao.getInicio() + " ate " + interseccao.getFim());
+                System.out.println("De " + interseccao.getInicio().format(formatter) + " ate " + interseccao.getFim().format(formatter));
             }
         }else{
             System.out.println("Não há intersecções de horários");
