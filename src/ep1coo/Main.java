@@ -10,18 +10,22 @@ public class Main {
         
         Collection<String> participantes = new ArrayList<String>();
         
-        participantes.add("um");
-        participantes.add("dois");
-        participantes.add("tres");
-        participantes.add("quatro");
+        participantes.add("Paulo");
+        participantes.add("Pedro");
+        participantes.add("Ale");
         
         MarcadorDeReuniao marcador = new MarcadorDeReuniao();
-        marcador.marcarReuniaoEntre(LocalDate.parse("2019-04-29"), LocalDate.parse("2019-05-05"), participantes);
+        marcador.marcarReuniaoEntre(LocalDate.parse("2019-01-01"), LocalDate.parse("2019-01-10"), participantes);
         
-        marcador.indicaDisponibilidade("um", LocalDateTime.parse("2019-04-29T11:40"), LocalDateTime.parse("2019-04-29T11:50"));
-        marcador.indicaDisponibilidade("um", LocalDateTime.parse("2019-04-30T12:40"), LocalDateTime.parse("2019-04-30T12:50"));
-        marcador.indicaDisponibilidade("dois", LocalDateTime.parse("2019-04-29T11:40"), LocalDateTime.parse("2019-04-29T11:50"));
-        marcador.indicaDisponibilidade("dois", LocalDateTime.parse("2019-04-30T12:40"), LocalDateTime.parse("2019-04-30T12:50"));
+        marcador.indicaDisponibilidade("Paulo", LocalDateTime.parse("2019-01-01T08:30"), LocalDateTime.parse("2019-01-01T10:00"));
+        marcador.indicaDisponibilidade("Paulo", LocalDateTime.parse("2019-01-01T16:00"), LocalDateTime.parse("2019-01-01T18:00"));
+        marcador.indicaDisponibilidade("Paulo", LocalDateTime.parse("2019-01-03T12:00"), LocalDateTime.parse("2019-01-03T16:00"));
+        marcador.indicaDisponibilidade("Pedro", LocalDateTime.parse("2019-01-01T09:00"), LocalDateTime.parse("2019-01-01T17:00"));
+        marcador.indicaDisponibilidade("Pedro", LocalDateTime.parse("2019-01-03T11:00"), LocalDateTime.parse("2019-01-03T13:00"));
+        marcador.indicaDisponibilidade("Pedro", LocalDateTime.parse("2019-01-03T15:00"), LocalDateTime.parse("2019-01-03T17:00"));
+        marcador.indicaDisponibilidade("Ale", LocalDateTime.parse("2019-01-02T01:00"), LocalDateTime.parse("2019-01-02T23:00"));
+        marcador.indicaDisponibilidade("Ale", LocalDateTime.parse("2019-01-01T09:30"), LocalDateTime.parse("2019-01-01T16:30"));
+        marcador.indicaDisponibilidade("Ale", LocalDateTime.parse("2019-01-03T12:30"), LocalDateTime.parse("2019-01-03T15:30"));
         
  
         marcador.novaReuniao.mostraSobreposicao();

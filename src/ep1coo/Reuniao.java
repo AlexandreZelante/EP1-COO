@@ -6,7 +6,7 @@ import java.util.ArrayList;
 
 public class Reuniao {
     private ArrayList<Participante> participantes;
-    private ArrayList<Intervalo> listaInterseccoes;
+    private ArrayList<Intervalo> listaInterseccoes; 
     private LocalDate inicioIntervalo;
     private LocalDate finalIntervalo;
     
@@ -14,6 +14,7 @@ public class Reuniao {
         this.participantes = participantes;
         this.inicioIntervalo = inicioIntervalo;
         this.finalIntervalo = finalIntervalo;
+        this.listaInterseccoes = new ArrayList<>();
     }
 
     public ArrayList<Participante> getParticipantes() {
@@ -89,8 +90,8 @@ public class Reuniao {
                     listaInterseccoes.add(new Intervalo(inicio, fim));
                 }
             }
-            inicioPadrao = inicio;
-            fimPadrao = fim;
+            inicio = inicioPadrao;
+            fim = fimPadrao;
         }
     }
     
