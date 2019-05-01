@@ -1,0 +1,93 @@
+Nome: Igor Antun da Costa Gago   Nº USP: 10687509
+Nome: Alexandre Zelante Comuni   Nº USP: 10723795
+
+Para compilar o programa, e rodar o código de exemplo pré-inserido:
+    javac Main.java Intervalo.java MarcadorDeReuniao.java Participante.java Reuniao.java && java Main
+
+Primeiro exemplo de utilização, inserido diretamente no corpo do `main`:
+    Collection<String> listaDeParticipantes = new ArrayList<String>();
+
+    listaDeParticipantes.add("paulo.kim@usp.br");
+    listaDeParticipantes.add("pedro.paulo@usp.br");
+    listaDeParticipantes.add("alexandre.zelante@usp.br");
+
+    MarcadorDeReuniao marcador = new MarcadorDeReuniao();
+    marcador.marcarReuniaoEntre(LocalDate.parse("2019-01-01"), LocalDate.parse("2019-01-10"), listaDeParticipantes);
+
+    marcador.indicaDisponibilidade("paulo.kim@usp.br", LocalDateTime.parse("2019-01-01T08:30"), LocalDateTime.parse("2019-01-01T10:00"));
+    marcador.indicaDisponibilidade("paulo.kim@usp.br", LocalDateTime.parse("2019-01-01T16:00"), LocalDateTime.parse("2019-01-01T18:00"));
+    marcador.indicaDisponibilidade("paulo.kim@usp.br", LocalDateTime.parse("2019-01-03T12:00"), LocalDateTime.parse("2019-01-03T16:00"));
+    marcador.indicaDisponibilidade("pedro.paulo@usp.br", LocalDateTime.parse("2019-01-01T09:00"), LocalDateTime.parse("2019-01-01T17:00"));
+    marcador.indicaDisponibilidade("pedro.paulo@usp.br", LocalDateTime.parse("2019-01-03T11:00"), LocalDateTime.parse("2019-01-03T13:00"));
+    marcador.indicaDisponibilidade("pedro.paulo@usp.br", LocalDateTime.parse("2019-01-03T15:00"), LocalDateTime.parse("2019-01-03T17:00"));
+    marcador.indicaDisponibilidade("alexandre.zelante@usp.br", LocalDateTime.parse("2019-01-02T01:00"), LocalDateTime.parse("2019-01-02T23:00"));
+    marcador.indicaDisponibilidade("alexandre.zelante@usp.br", LocalDateTime.parse("2019-01-01T09:30"), LocalDateTime.parse("2019-01-01T16:30"));
+    marcador.indicaDisponibilidade("alexandre.zelante@usp.br", LocalDateTime.parse("2019-01-03T12:30"), LocalDateTime.parse("2019-01-03T15:30"));
+
+    marcador.mostraSobreposicao();
+
+
+Saída esperada do exemplo acima:
+    Lista de horários disponíveis por participante:
+
+    Participante: paulo.kim@usp.br
+    De 01/01/2019 08:30 até 01/01/2019 10:00
+    De 01/01/2019 16:00 até 01/01/2019 18:00
+    De 03/01/2019 12:00 até 03/01/2019 16:00
+
+    Participante: pedro.paulo@usp.br
+    De 01/01/2019 09:00 até 01/01/2019 17:00
+    De 03/01/2019 11:00 até 03/01/2019 13:00
+    De 03/01/2019 15:00 até 03/01/2019 17:00
+
+    Participante: alexandre.zelante@usp.br
+    De 02/01/2019 01:00 até 02/01/2019 23:00
+    De 01/01/2019 09:30 até 01/01/2019 16:30
+    De 03/01/2019 12:30 até 03/01/2019 15:30
+
+
+
+    Lista de horários disponíveis para todos:
+
+    De 01/01/2019 09:30 até 01/01/2019 10:00
+    De 01/01/2019 16:00 até 01/01/2019 16:30
+    De 03/01/2019 12:30 até 03/01/2019 13:00
+    De 03/01/2019 15:00 até 03/01/2019 15:30
+
+====================
+
+Segundo exemplo de utilização, inserido diretamente no corpo do `main`:
+    Collection<String> listaDeParticipantes = new ArrayList<String>();
+
+    listaDeParticipantes.add("alexandre.zelante@usp.br");
+    listaDeParticipantes.add("igor.antun@usp.br");
+
+    MarcadorDeReuniao marcador = new MarcadorDeReuniao();
+    marcador.marcarReuniaoEntre(LocalDate.parse("2019-01-07"), LocalDate.parse("2019-01-10"), listaDeParticipantes);
+
+    marcador.indicaDisponibilidade("alexandre.zelante@usp.br", LocalDateTime.parse("2019-01-07T08:00"), LocalDateTime.parse("2019-01-07T12:00"));
+    marcador.indicaDisponibilidade("alexandre.zelante@usp.br", LocalDateTime.parse("2019-01-08T08:00"), LocalDateTime.parse("2019-01-08T12:00"));
+    marcador.indicaDisponibilidade("alexandre.zelante@usp.br", LocalDateTime.parse("2019-01-09T08:00"), LocalDateTime.parse("2019-01-09T12:00"));
+    marcador.indicaDisponibilidade("igor.antun@usp.br", LocalDateTime.parse("2019-01-07T11:20"), LocalDateTime.parse("2019-01-07T11:59"));
+    marcador.indicaDisponibilidade("igor.antun@usp.br", LocalDateTime.parse("2019-01-07T09:45"), LocalDateTime.parse("2019-01-07T10:15"));
+
+    marcador.mostraSobreposicao();
+
+Saída esperada do exemplo acima:
+    Lista de horários disponíveis por participante:
+
+    Participante: alexandre.zelante@usp.br
+    De 07/01/2019 08:00 até 07/01/2019 12:00
+    De 08/01/2019 08:00 até 08/01/2019 12:00
+    De 09/01/2019 08:00 até 09/01/2019 12:00
+
+    Participante: igor.antun@usp.br
+    De 07/01/2019 11:20 até 07/01/2019 11:59
+    De 07/01/2019 09:45 até 07/01/2019 10:15
+
+
+
+    Lista de horários disponíveis para todos:
+
+    De 07/01/2019 11:20 até 07/01/2019 11:59
+    De 07/01/2019 09:45 até 07/01/2019 10:15

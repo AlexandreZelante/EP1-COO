@@ -1,4 +1,5 @@
-package ep1coo;
+package reuniao;
+
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -7,19 +8,10 @@ import java.util.List;
 public class Participante {
     String email;
     ArrayList<Intervalo> disponibilidade;
-    
-    public Participante(String email){
+
+    public Participante(String email) {
         this.email = email;
         this.disponibilidade = new ArrayList<Intervalo>();
-    }
-    
-    ArrayList<Intervalo> getDisponibilidade(){
-        return this.disponibilidade;
-    }
-    
-    void inserirDisponibilidade(LocalDateTime inicio, LocalDateTime fim){
-        Intervalo novoIntervalo = new Intervalo(inicio, fim);
-        disponibilidade.add(novoIntervalo);
     }
 
     public String getEmail() {
@@ -29,6 +21,13 @@ public class Participante {
     public void setEmail(String email) {
         this.email = email;
     }
-    
-    
+
+    ArrayList<Intervalo> getDisponibilidade() {
+        return this.disponibilidade;
+    }
+
+    void inserirDisponibilidade(LocalDateTime inicio, LocalDateTime fim) {
+        Intervalo intervalo = new Intervalo(inicio, fim);
+        disponibilidade.add(intervalo);
+    }
 }
