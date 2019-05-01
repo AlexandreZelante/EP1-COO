@@ -65,7 +65,7 @@ public class Reuniao {
 
         buscaInterseccoes(0, inicio, fim);
 
-        if (interseccoes != null) {
+        if (interseccoes.size() != 0) {
             System.out.println("\n\nLista de horários disponíveis para todos: \n");
 
             for (Intervalo interseccao : interseccoes) {

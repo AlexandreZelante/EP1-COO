@@ -2,7 +2,8 @@ Nome: Igor Antun da Costa Gago   Nº USP: 10687509
 Nome: Alexandre Zelante Comuni   Nº USP: 10723795
 
 Para compilar o programa, e rodar o código de exemplo pré-inserido:
-    javac Main.java Intervalo.java MarcadorDeReuniao.java Participante.java Reuniao.java && java Main
+    $ make build
+    $ make run
 
 Primeiro exemplo de utilização, inserido diretamente no corpo do `main`:
     Collection<String> listaDeParticipantes = new ArrayList<String>();
